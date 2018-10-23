@@ -84,7 +84,7 @@ gather.lpi.terradat <- function(dsn) {
         lpi.header,
         LineKey:CheckboxLabel,
         PrimaryKey,
-        DBKey
+        DIMAKey
       ),
       y = .,
       by = c("PrimaryKey", "RecKey")
