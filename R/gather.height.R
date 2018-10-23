@@ -18,8 +18,8 @@ gather.height.terradat <- function(dsn) {
   lpi.header <- suppressWarnings(sf::st_read(dsn = dsn, layer = "tblLPIHeader"))
 
   ## Make this an else statement
-  if (any(colnames(lpi.header) %in% "DBKey")) {
-    levels <- rlang::quos(PrimaryKey, "DBKey")
+  if (any(colnames(lpi.header) %in% "DIMAKey")) {
+    levels <- rlang::quos(PrimaryKey, "DIMAKey")
   } else {
     levels <- rlang::quos(PrimaryKey)
   }
