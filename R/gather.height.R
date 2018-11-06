@@ -63,26 +63,30 @@ gather.height.terradat <- function(dsn) {
   lpi.height.tall.herb$GrowthHabit_measured <- "Non-Woody"
 
   # Gather lower herbaceous heights
-  lpi.height.tall.lower.herb <- dplyr::select(
-    .data = lpi.detail,
-    !!!levels,
-    PointLoc,
-    PointNbr,
-    RecKey,
-    dplyr::matches("LowerHerb$")
-  ) %>% dplyr::mutate(type = "lower.herbaceous")
-  names(lpi.height.tall.lower.herb) <- stringr::str_replace_all(
-    string = names(lpi.height.tall.lower.herb),
-    pattern = "LowerHerb$",
-    replacement = ""
-  )
+  #lpi.height.tall.lower.herb <- dplyr::select(
+  #  .data = lpi.detail,
+  #  !!!levels,
+  #  PointLoc,
+  #  PointNbr,
+  # RecKey,
+  #  dplyr::matches("LowerHerb$")
+  #) %>% dplyr::mutate(type = "lower.herbaceous")
+  #names(lpi.height.tall.lower.herb) <- stringr::str_replace_all(
+  #  string = names(lpi.height.tall.lower.herb),
+  #  pattern = "LowerHerb$",
+  #  replacement = ""
+  #)
   # Add observed growth habit field
   lpi.height.tall.lower.herb$GrowthHabit_measured <- "Non-Woody"
-
-  # Merge all three gather types together
+  
+  ##Fix a wrong field name in lpi.height.tall.herb
+  colnames(lpi.height.tall.herb)[8] <- "Chkbox"
+  
+  # Merge two gather types together - dropped lpi.height.tall.lower.herb because it actually
+  # needs some more manipulation to get it into a 10 column dataframe
   lpi.height <- rbind(lpi.height.tall.woody,
-                      lpi.height.tall.herb,
-                      lpi.height.tall.lower.herb)
+                      lpi.height.tall.herb
+                      )
   lpi.height <- lpi.height %>% dplyr::full_join(x = ., y = lpi.header) %>%
     subset(., !is.na(Height))
 
