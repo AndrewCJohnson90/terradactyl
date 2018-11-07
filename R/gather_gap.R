@@ -12,19 +12,11 @@
 gather.gap.terradat <- function(dsn) {
   gap.detail <- suppressWarnings(sf::st_read(dsn, layer = "tblGapDetail")) %>%
     subset(., select = -c(
-      GlobalID,
-      created_user,
-      created_date,
-      last_edited_user,
-      last_edited_date
+      GlobalID
     ))
   gap.header <- suppressWarnings(sf::st_read(dsn, layer = "tblGapHeader")) %>%
     subset(., select = -c(
-      GlobalID,
-      created_user,
-      created_date,
-      last_edited_user,
-      last_edited_date
+      GlobalID
     ))
 
 
