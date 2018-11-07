@@ -77,7 +77,7 @@ gather.height.terradat <- function(dsn) {
   #  replacement = ""
   #)
   # Add observed growth habit field
-  lpi.height.tall.lower.herb$GrowthHabit_measured <- "Non-Woody"
+  #lpi.height.tall.lower.herb$GrowthHabit_measured <- "Non-Woody"
   
   ##Fix a wrong field name in lpi.height.tall.herb
   colnames(lpi.height.tall.herb)[8] <- "Chkbox"
