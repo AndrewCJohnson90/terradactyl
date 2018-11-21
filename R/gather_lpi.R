@@ -15,14 +15,14 @@
 gather.lpi.terradat <- function(dsn) {
 
   # Read LPI information from TerrADat
-  lpi.detail <- suppressWarnings(sf::st_read(
-    dsn = dsn,
-    layer = "tblLPIDetail"
-  ))
-  lpi.header <- suppressWarnings(sf::st_read(
-    dsn = dsn,
-    layer = "tblLPIHeader"
-  ))
+  TblLPIDetailArcTable <- arc.open(paste(dsn,"ilmocTerrADatGc.ILMOCTERRADATDBO.tblLPIDetail", sep = "/")
+  #Brings the table in as a DF
+  lpi.detail <- arc.select(TblLPIDetailArcTable)
+  
+  TblLPIHeaderArcTable <- arc.open(paste(dsn,"ilmocTerrADatGc.ILMOCTERRADATDBO.tblLPIHeader", sep = "/")
+  #Brings the table in as a DF
+  lpi.header <- arc.select(TblLPIHeaderArcTable)
+  
 
   # Make a tall data frame with the hit codes by layer and the checkbox designation
 
