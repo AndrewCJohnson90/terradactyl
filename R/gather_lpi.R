@@ -15,11 +15,11 @@
 gather.lpi.terradat <- function(dsn) {
 
   # Read LPI information from TerrADat
-  TblLPIDetailArcTable <- arcgisbinding::arc.open(paste(dsn,"ilmocTerrADatGc.ILMOCTERRADATDBO.tblLPIDetail", sep = "/")
+  TblLPIDetailArcTable <- arcgisbinding::arc.open(paste(dsn,"ilmocTerrADatGc.ILMOCTERRADATDBO.tblLPIDetail", sep = "/"))
   #Brings the table in as a DF
   lpi.detail <- arcgisbinding::arc.select(TblLPIDetailArcTable)
   
-  TblLPIHeaderArcTable <- arcgisbinding::arc.open(paste(dsn,"ilmocTerrADatGc.ILMOCTERRADATDBO.tblLPIHeader", sep = "/")
+  TblLPIHeaderArcTable <- arcgisbinding::arc.open(paste(dsn,"ilmocTerrADatGc.ILMOCTERRADATDBO.tblLPIHeader", sep = "/"))
   #Brings the table in as a DF
   lpi.header <- arcgisbinding::arc.select(TblLPIHeaderArcTable)
   
